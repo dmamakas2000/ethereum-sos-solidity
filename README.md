@@ -1,4 +1,5 @@
-
+# Ethereum SOS-Game Using Solidity
+In this repository, we implement a complicated version of the SOS-Game, in an Ethereum smart contract using [#Solidity](https://soliditylang.org/). The contribution, splits into two APIs, which are finally combined to achieve the wanted functionality. Feel free to check out the code by yourself, and test it out using the [Remix IDE](https://remix.ethereum.org/)! 
 
 ### Basic Rules of the SOS Game
 This game is played by two players alternately. There are 9 squares organized in a 3x3 grid. The squares are initially empty. On each move, the player playing must place one (and only one) *S* or *O* in any empty square he wishes. Play continues until the acronym *SOS* is formed horizontally, vertically, or diagonally, or until there are no more empty squares. If a player forms an SOS he wins the game.
