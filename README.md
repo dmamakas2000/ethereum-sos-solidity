@@ -39,3 +39,30 @@ MultiSOS API implements the same game style, except that it supports the paralle
 A player also has the option to choose to play a hand with a specific other player. For this purpose, in addition to ```play()```, the method ```play(address)```, was implemented, with which the caller will declare the address of his teammate. When that player also calls the same method, with the first player's address, a game will be started between them. A player may call ```play(address)``` repeatedly (logically a few times), making himself available to play with several other players, or with the same teammate many times, but not with himself. Whenever one of these players calls ```play(address)``` also, with the address of the first one, the corresponding game will start. A player will be able to start games with specific teammates and open games. Finally, we state that the feature for the private lobby is only supported in MultiSOS and not in CryptoSOS.
 
 🔎 You can click [here](multi-sos) to check out the code of the MultiSOS API.
+
+### Message Codes
+One of the main difficulties encountered, has to do with the size of the smart contract, which during development exceeded a certain byte limit (24,576 bytes) and thus it could not be deployed. Therefore, one of the approaches used to deal with this situation, was to reduce the size of the string messages previously used in the require and revert statements and replace them with new, and at the same time smaller, messages. The table below expresses the necessary message matches. The *Message* field shows the original version of an error message, and the *Code* field shows its corresponding representation inside the smart contract.
+
+<br>
+
+**Message Codes Table** 📃
+
+| Message                                                                  | Code |
+|--------------------------------------------------------------------------|------|
+| The game specified does not exist.                                       | NE   |
+| You are not registered to play this game.                                | NR   |
+| You can't play again!                                                    | PA   |
+| You can't register again to this game.                                   | CRA  |
+| Could not send the prize to the winner of this game.                     | CSP  |
+| One minute needs to be passed, in order for this action to be performed. | 1M   |
+| Only the last player who placed a box, can perform this action.          | LP   |
+| Refund to player (due to long wait) failed.                              | RF   |
+| Collect profit failed.                                                   | CRF  |
+| The time range needed for this action, was no longer than 2 minutes.     | TR   |
+| Only one player can cancel the game.                                     | O1C  |
+| Exactly 1 ether is required to play this game.                           | 1ET  |
+| You need to specify a box in the needed range [1, 9]                     | BR   |
+| You can't play with yourself!                                            | CPY  |
+| Chose another box!                                                       | AB   |
+
+For example, if the user attempts to perform a transaction and the message shown displays *1ET*, it means that *Exactly 1 ether is required to play this game.*, and therefore in order to join this game, the user needs to pay exactly the amount of 1 Ether.
