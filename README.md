@@ -30,8 +30,12 @@ If a player declares to play, and within 2 minutes a second player has not yet d
 - ***Hall of Fame*** <br>
 For each player who has played at least once, the smart contract keeps track of his total game participations, as well as his total wins. The ```getPlayerStats(address)``` function is used to implement this specific functionality. An entry canceled with the ```cancel()``` function, is not considered countable. Instead, a game that ends via ```ur2slow()``` counts as normal participation for both players and as a win for the player who (successfully) called ```ur2slow()```.
 
+🔎 You can click [here](https://github.com/dmamakas2000/cryptanalysis-python/tree/master/encryption) to check out the code of the CryptoSOS API.
+
 ### MultiSOS API
 MultiSOS API implements the same game style, except that it supports the parallel execution of multiple game sets. The first player to call ```play()``` is put on hold until a second player calls the same method, at which point a game will be started between them. Now if a third and fourth player calls``` play()``` in turn before the first-hand ends, a second game will start immediately, in parallel with the first. Generally, the idea supports the fact that unlimited games could be running simultaneously in parallel.
 
 - ***Private Lobby*** <br>
 A player also has the option to choose to play a hand with a specific other player. For this purpose, in addition to ```play()```, the method ```play(address)```, was implemented, with which the caller will declare the address of his teammate. When that player also calls the same method, with the first player's address, a game will be started between them. A player may call ```play(address)``` repeatedly (logically a few times), making himself available to play with several other players, or with the same teammate many times, but not with himself. Whenever one of these players calls ```play(address)``` also, with the address of the first one, the corresponding game will start. A player will be able to start games with specific teammates and open games. Finally, we state that the feature for the private lobby is only supported in MultiSOS and not in CryptoSOS.
+
+🔎 You can click [here](https://github.com/dmamakas2000/cryptanalysis-python/tree/master/encryption) to check out the code of the MultiSOS API.
