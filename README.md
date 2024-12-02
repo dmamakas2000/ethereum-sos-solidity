@@ -66,3 +66,8 @@ One of the main difficulties encountered, has to do with the size of the smart c
 | Chose another box!                                                       | AB   |
 
 For example, if the user attempts to perform a transaction and the message shown displays *1ET*, it means that *Exactly 1 ether is required to play this game.*, and therefore in order to join this game, the user needs to pay exactly the amount of 1 Ether.
+
+<br>
+
+## License
+This project is licensed under the **MIT License** - see the **[LICENSE](LICENSE)** file for details.
